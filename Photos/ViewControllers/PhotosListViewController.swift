@@ -8,13 +8,14 @@
 import UIKit
 
 class PhotosListViewController: UIViewController {
-    
+    //MARK:- View
     let photosListView = PhotosListView()
         
     override func loadView() {
         view = photosListView
     }
     
+    //MARK:- ViewController properties
     private lazy var spinner: UIActivityIndicatorView = {
         let spinner = UIActivityIndicatorView(style: .large)
         spinner.frame = loadingView.frame
@@ -48,7 +49,8 @@ class PhotosListViewController: UIViewController {
         configureCollectionView()
         fetchPhotos()
     }
-
+    
+    //MARK:- API call
     private func fetchPhotos() {
         APIClient.fetchPhotos { [weak self] (result) in
             switch result {
@@ -65,6 +67,7 @@ class PhotosListViewController: UIViewController {
         }
     }
     
+    //MARK:- UI methods
     private func configureCollectionView() {
         photosListView.collectionView.delegate = self
         photosListView.collectionView.dataSource = self
@@ -78,6 +81,7 @@ class PhotosListViewController: UIViewController {
     }
 }
 
+//MARK:- CollectionView extensions
 extension PhotosListViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let cellsAcross: CGFloat = 2

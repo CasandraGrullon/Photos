@@ -36,7 +36,9 @@ class PhotoModelTests: XCTestCase {
                 }
             ]
             """.data(using: .utf8)!
+        
         let expectedThumbnailUrl = "https://via.placeholder.com/150/92c952"
+        
         do {
             let results = try JSONDecoder().decode([Photo].self, from: jsonData)
             let photos = results

@@ -23,6 +23,7 @@ extension UIViewController {
         }
     }
     
+    // Note: Spinner and View parameters are optional to allow more use cases for this method
     func showAlert(title: String, message: String, spinner: UIActivityIndicatorView?, view: UIView?, completion: ((UIAlertAction) -> Void)? = nil) {
       let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
       let okAction = UIAlertAction(title: "Ok", style: .default, handler: completion)

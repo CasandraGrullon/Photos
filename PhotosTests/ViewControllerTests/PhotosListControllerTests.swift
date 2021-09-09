@@ -10,7 +10,6 @@ import XCTest
 @testable import Photos
 
 class PhotosListViewControllerTests: XCTestCase {
-    
     func makeSUT() -> PhotosListViewController {
         let viewController = PhotosListViewController()
         let sut = viewController
